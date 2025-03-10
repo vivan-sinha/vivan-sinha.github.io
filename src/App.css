@@ -1,0 +1,11 @@
+
+body {
+    /* background-color: black; */
+    background-image: radial-gradient(circle at 0% 0%, #222222, #0e0e0e 25%, #000000 60%);
+    color:aliceblue
+}
+@import "tailwindcss";
+
+@theme {
+    --default-font-family: "Roboto Mono";
+}
