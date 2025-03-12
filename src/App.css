@@ -9,7 +9,7 @@ body {
 @import "tailwindcss";
 
 :root {
-    --scroll-duration: 20s;
+    --scroll-duration: 40s;
 }
 
 @theme {
@@ -27,4 +27,9 @@ body {
     }
 
     
+}
+.links a {
+    display:flex;
+    justify-content: center;
+    align-items:center
 }
