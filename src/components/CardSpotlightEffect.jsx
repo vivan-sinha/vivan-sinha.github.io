@@ -41,7 +41,7 @@ export const CardSpotlightEffect = ({children}) => {
         onBlur={handleBlur}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="justify-self-center relative w-auto overflow-hidden rounded-xl  border-slate-400"
+        className="justify-self-center relative w-full overflow-hidden rounded-xl"
       >
         <div
           className="w-full pointer-events-none absolute -inset-px opacity-0 transition duration-300"
