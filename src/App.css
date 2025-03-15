@@ -4,8 +4,17 @@ body {
     background-image: radial-gradient(circle at 0% 0%, #333333, #0e0e0e0e 50%, #000000 100%);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    color:aliceblue
+    color:aliceblue;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
 @import "tailwindcss";
 
 :root {
@@ -16,7 +25,7 @@ body {
     --default-font-family: "Roboto Mono";
 
     --animate-infinite-scroll: infinite-scroll var(--scroll-duration) linear infinite;
-    --animate-bounce-2: bounce2 10s linear infinite;
+    --animate-blink: blink 2s linear infinite;
     @keyframes infinite-scroll {
         0% {
             transform: translateX(0);
@@ -26,10 +35,32 @@ body {
         }
     }
 
+    @keyframes blink {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
     
 }
 .links a {
     display:flex;
     justify-content: center;
     align-items:center
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
 }
