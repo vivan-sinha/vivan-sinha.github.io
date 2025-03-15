@@ -32,10 +32,12 @@ export const techIcons = {
     'github': { className: "devicon-github-original hover:text-white", link: "https://github.com/about" },
     'bitbucket': { className: "devicon-bitbucket-original hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-800 hover:text-transparent hover:bg-clip-text", link: "https://bitbucket.org/product/" },
     'devicon': {className: "devicon-devicon-plain hover:text-green-900", link: "https://devicon.dev/"},
+    'tensorflow': {className: "devicon-tensorflow-original hover:text-orange-500", link: "https://www.tensorflow.org/"},
+  
 }
 
 export const allTechnologies = 
-['node', 'tailwind', 'vite', 'react', 'typescript', 'html', 'npm', 'python', 'fastapi', 'flask', 'docker', 'javascript', 'socketio', 'postgres', 'gcloud', 'css', 'pandas', 'ruby', 'jekyll', 'git', 'github', 'bitbucket', 'devicon']
+['node', 'tailwind', 'vite', 'react', 'typescript', 'html', 'npm', 'python', 'fastapi', 'tensorflow', 'flask', 'docker', 'javascript', 'socketio', 'postgres', 'gcloud', 'css', 'pandas', 'ruby', 'jekyll', 'git', 'github', 'bitbucket', 'devicon']
 
 export class Experience {
     constructor(title, image, image2, description, link, technologies, current) {
@@ -95,7 +97,7 @@ const CalBadminton = new Experience(
     null,
     <>As president, <span className='text-blue-400 font-semibold'>optimized</span> and maintained our official Berkeley Badminton website. Not to mention we <span className='text-blue-400 font-semibold'>won collegiate nationals</span>.</>,
     "https://badminton.berkeley.edu",
-    ['python', 'tailwind', 'react', 'github', 'docker', 'socketio', 'postgres', 'pandas', 'bitbucket'],
+    ['html', 'javascript', 'css', 'ruby', 'jekyll', 'git', 'github'],
     false,
 )
 
@@ -113,9 +115,9 @@ const NEAT = new Experience(
     'NEAT/LNN',
     NEAT_preview,
     null,
-    <>*Attempted* to compare the performance of MIT's liquid neural network algorithm to the classical genetic NEAT on a simple game.</>,
+    <>Compared the performance of MIT's liquid neural network algorithm to the classical genetic NEAT on a simple game.</>,
     null,
-    ['python', 'tailwind', 'react', 'github', 'docker', 'socketio', 'postgres', 'pandas', 'bitbucket'],
+    ['python', 'pandas', 'tensorflow', 'git', 'github'],
     false,
 )
 

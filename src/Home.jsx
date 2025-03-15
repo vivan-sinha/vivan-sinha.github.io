@@ -1,16 +1,11 @@
-
-import logo from './assets/logoBlack.svg'
 import {CardSpotlightEffect} from './components/CardSpotlightEffect'
 import NameCard from './components/NameCard'
 import BigExperienceCard from './components/BigExperienceCard'
 import SmallExperienceCard from './components/SmallExperienceCard'
-import octoPreview from './assets/OCTO_preview.png'
-import {OCTO} from './data/expereinces'
-import { Rezolve } from './data/expereinces'
 import { Experiences, allTechnologies } from './data/expereinces'
 import TechScroller, { TechNonScroller } from './components/TechScroller'
 import ContactFormModal from './components/ContactFormModal'
-import { useState, useRef, useEffect, use } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 
 
@@ -21,18 +16,11 @@ export default function Home() {
 
     const textBoxClicked = useRef(false)
 
-    let stuff = []
-    for (let i = 0; i < 10; i++) {
-        stuff.push("hi")
-    }
-
     const [contactToggled, setToggleContact] = useState(false)
     function toggleContactForm() {
         setToggleContact((prev) =>{
             if (prev && textBoxClicked.current) {
                 textBoxClicked.current = false
-                // window.blur()
-                // window.focus()
                 location.reload()
             }
             return !prev
@@ -49,7 +37,6 @@ export default function Home() {
         } else {
             ref.current?.scrollIntoView({behavior:'smooth'})
         }
-        // setScrollDown(!scrollDown)
     }
 
     const hoveringArrow = useRef(false)
@@ -73,6 +60,7 @@ export default function Home() {
 
     const [startBlinking, setStartBlinking] = useState(false)
     const [stopBlinking, setStopBlinking] = useState(false)
+
     useEffect(() => {
         function handleScroll() {
             setStopBlinking(true)
@@ -113,7 +101,7 @@ export default function Home() {
         <CardSpotlightEffect timeout={'90'} intensity={contactToggled ? '0' : ''}>
                 <ContactFormModal modalRef={modalRef} contactToggled={contactToggled} toggleContactForm={toggleContactForm} textBoxClicked={textBoxClicked}/>
             <div className='w-[100vw]'>
-                <div className='justify-self-center max-w-[90vw] xl:max-w-[65vw] 2xl:max-w-[50vw] space-y-10 mb-40'>
+                <div className='justify-self-center max-w-[90vw] xl:max-w-[65vw] 2xl:max-w-[50vw] space-y-10 mb-20'>
 
                     <div className='flex flex-col justify-center items-center mb-10'>
                         <NameCard toggleContactForm={toggleContactForm}></NameCard>
