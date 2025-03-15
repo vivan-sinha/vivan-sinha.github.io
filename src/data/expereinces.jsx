@@ -76,7 +76,7 @@ const ThisWebsite = new Experience(
     website_preview,
     null,
     <><span className='bg-white/75 px-1 font-bold text-black'>No libraries</span>, just react and tailwind.</>,
-    null,
+    "https://github.com/vivan-sinha/website",
     ['tailwind', 'vite', 'react', 'npm', 'github', 'devicon'],
     false,
 )
