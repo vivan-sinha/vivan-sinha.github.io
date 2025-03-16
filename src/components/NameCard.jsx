@@ -39,7 +39,7 @@ function Logos() {
     }
     return (
         <>  
-            <a href={resume} download>
+            <a href={resume} download="Vivan Sinha Resume.pdf" target='_blank'>
             <i className={"fa-solid fa-file-arrow-down cursor-pointer hover:text-blue-200"} /></a>
             
             <a href='https://www.youtube.com/@vivansinha' target='_blank'>
