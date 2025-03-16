@@ -40,15 +40,19 @@ export default function Home() {
     }
 
     const hoveringArrow = useRef(false)
+    const hoverArrowTimeout = useRef(false)
     const arrowTimeout = useRef(null)
     
     function handleArrowEnter() {
+        if (hoverArrowTimeout.current) {
+            return
+        }
         hoveringArrow.current = true
         arrowTimeout.current = setTimeout(() => {
-            if (hoveringArrow.current) {
+            if (hoveringArrow.current && !hoverArrowTimeout.current) {
                 scrollToElement(startRef)
             }
-        }, [600])
+        }, [800])
     }
     
 
@@ -98,10 +102,10 @@ export default function Home() {
     }
     
     return (
-        <CardSpotlightEffect lag={'100'} intensity={contactToggled ? '0' : ''}>
+        <CardSpotlightEffect lag={'100'} intensity={contactToggled ? '0' : ''} radius='18000px'>
                 <ContactFormModal modalRef={modalRef} contactToggled={contactToggled} toggleContactForm={toggleContactForm} textBoxClicked={textBoxClicked}/>
             <div className='w-[100vw]'>
-                <div className='justify-self-center max-w-[90vw] xl:max-w-[65vw] 2xl:max-w-[50vw] space-y-10 mb-20'>
+                <div className='justify-self-center max-w-[90vw] xl:max-w-[65vw] 2xl:max-w-[50vw] space-y-10 mb-5'>
 
                     <div className='flex flex-col justify-center items-center mb-10'>
                         <NameCard toggleContactForm={toggleContactForm}></NameCard>
@@ -144,10 +148,20 @@ export default function Home() {
                     </div>
 
 
-                    <div>
+                    <div className='mb-10'>
                         <h1 className='text-2xl 2xl:text-3xl mb-10 text-gray-200'>Experienced In:</h1>
                         <TechScroller title='all' technologies={allTechnologies}/>
                     </div>
+                    <CardSpotlightEffect intensity={'0.1'} customCSS={'rounded-2xl mt-10 mb-5'}>
+                            <i className='fa-solid fa-angle-up self-center justify-self-center text-5xl px-10 py-3 text-white/75'
+                            onClick={() => {
+                                hoverArrowTimeout.current = true
+                                window.scrollTo({top:0, behavior:'smooth'});
+                                setTimeout(() => {
+                                    hoverArrowTimeout.current = false
+                                }, [1000])
+                            }}></i>
+                        </CardSpotlightEffect>
                 </div>
             </div>
         </CardSpotlightEffect>

@@ -6,7 +6,7 @@ import resume from '../assets/Vivan_Sinha_Resume.pdf'
 
 function PFP() {
     return (
-        <div className={'relative w-10 min-w-[25vw] md:w-28 sm:min-w-[12vw] md:min-w-0 hover:transform hover:rotate-[-15deg] hover:scale-110 ease-in-out duration-500 rounded-full overflow-hidden border-2 border-slate-200'}>
+        <div className={'relative w-10 min-w-[25vw] md:w-28 sm:min-w-[12vw] md:min-w-0 hover:transform hover:rotate-[-15deg] hover:scale-120 ease-in-out duration-500 rounded-full overflow-hidden border-2 border-slate-200'}>
             <img className='' src={pfp}/>
             <img className='absolute top-0 hover:transform hover:opacity-0 ease-in-out duration-500' src={logo}/>
 
@@ -95,20 +95,20 @@ function LargeScreenName({toggleContactForm}) {
             <div className='flex flex-row items-center space-x-5 justify-center text-center'>
                 <PFP/>
                 <div>
-                    <CardSpotlightEffect customCSS={'px-1'} intensity={'0.08'}>
+                    <CardSpotlightEffect customCSS={'px-1'} intensity={'0.1'}>
                     <h1 className='text-4xl tracking-tight'>Vivan Sinha</h1></CardSpotlightEffect>
                     <p className='justify-self-start text-xs px-1 md:text-xl text-gray-300'><i className="fa-solid fa-map-location-dot"/> Berkeley, CA</p>
                 </div>
             </div>
             <div className='text-4xl sm:text-9xl font-bold text-center'>
                 <div className='flex flex-row justify-center'>
-                    <CardSpotlightEffect intensity={'0.08'} customCSS={'pr-2 '}>
+                    <CardSpotlightEffect intensity={'0.1'} customCSS={'pr-2 '}>
                         <h1 className=''>FULL-STACK</h1>
                     </CardSpotlightEffect>
                 </div>
                 <div className='flex flex-row space-x-6 items-center w-full'>
 
-                    <CardSpotlightEffect intensity={'0.08'} customCSS={'pr-2 '}>
+                    <CardSpotlightEffect intensity={'0.1'} customCSS={'pr-2 '}>
                     <h1 className=''>DEVELOPER</h1>
                     </CardSpotlightEffect>
                     <CardSpotlightEffect intensity={'0.16'} customCSS={'rounded-full'}>

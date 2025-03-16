@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-export const CardSpotlightEffect = ({children, customCSS, intensity, lag, rgb}) => {
+export const CardSpotlightEffect = ({children, customCSS, intensity, lag, rgb, radius}) => {
   const hasCustomCSS = customCSS !== '' && customCSS != null;
   if (intensity == null || intensity == undefined || intensity == '') {
     intensity = 0.04
@@ -10,6 +10,9 @@ export const CardSpotlightEffect = ({children, customCSS, intensity, lag, rgb}) 
   }
   if (rgb == null || rgb == undefined || rgb == '') {
     rgb = '255,255,255'
+  }
+  if (radius == null || radius == undefined || radius == '') {
+    radius = '8000px'
   }
   const divRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -63,7 +66,7 @@ export const CardSpotlightEffect = ({children, customCSS, intensity, lag, rgb}) 
         className="w-full pointer-events-none absolute inset-0 opacity-0 transition duration-300"
         style={{
           opacity,
-          background: `radial-gradient(18000px circle at ${position.x}px ${position.y}px, rgba(${rgb},${intensity}), transparent 5%)`,
+          background: `radial-gradient(${radius} circle at ${position.x}px ${position.y}px, rgba(${rgb},${intensity}), transparent 5%)`,
         }}
       />
       {children}
