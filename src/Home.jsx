@@ -98,7 +98,7 @@ export default function Home() {
     }
     
     return (
-        <CardSpotlightEffect timeout={'90'} intensity={contactToggled ? '0' : ''}>
+        <CardSpotlightEffect lag={'100'} intensity={contactToggled ? '0' : ''}>
                 <ContactFormModal modalRef={modalRef} contactToggled={contactToggled} toggleContactForm={toggleContactForm} textBoxClicked={textBoxClicked}/>
             <div className='w-[100vw]'>
                 <div className='justify-self-center max-w-[90vw] xl:max-w-[65vw] 2xl:max-w-[50vw] space-y-10 mb-20'>

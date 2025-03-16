@@ -76,7 +76,7 @@ const ThisWebsite = new Experience(
     website_preview,
     null,
     <><span className='bg-white/75 px-1 font-bold text-black'>No libraries</span>, just react and tailwind.</>,
-    "https://github.com/vivan-sinha/website",
+    "https://github.com/vivan-sinha/vivan-sinha.github.io",
     ['tailwind', 'vite', 'react', 'npm', 'github', 'devicon'],
     false,
 )
@@ -115,7 +115,7 @@ const NEAT = new Experience(
     'NEAT/LNN',
     NEAT_preview,
     null,
-    <>Compared the performance of MIT's liquid neural network algorithm to the classical genetic NEAT on a simple game.</>,
+    <>Compared the performance of MIT's liquid neural network algorithm to the classical genetic NEAT on a simple driving game.</>,
     null,
     ['python', 'pandas', 'tensorflow', 'git', 'github'],
     false,

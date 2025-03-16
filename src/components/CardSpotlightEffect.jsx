@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-export const CardSpotlightEffect = ({children, customCSS, intensity, timeout, rgb}) => {
+export const CardSpotlightEffect = ({children, customCSS, intensity, lag, rgb}) => {
   const hasCustomCSS = customCSS !== '' && customCSS != null;
   if (intensity == null || intensity == undefined || intensity == '') {
     intensity = 0.04
   }
-  if (timeout == null) {
-    timeout = 0
+  if (lag == null) {
+    lag = 0
   }
   if (rgb == null || rgb == undefined || rgb == '') {
     rgb = '255,255,255'
@@ -24,7 +24,7 @@ export const CardSpotlightEffect = ({children, customCSS, intensity, timeout, rg
 
     setTimeout(() => {
       setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-    }, [timeout])
+    }, [lag])
 
   };
 
@@ -60,7 +60,7 @@ export const CardSpotlightEffect = ({children, customCSS, intensity, timeout, rg
       className={"justify-self-center relative overflow-hidden " + (hasCustomCSS && customCSS)}
     >
       <div
-        className="w-full pointer-events-none absolute -inset-px opacity-0 transition duration-300"
+        className="w-full pointer-events-none absolute inset-0 opacity-0 transition duration-300"
         style={{
           opacity,
           background: `radial-gradient(18000px circle at ${position.x}px ${position.y}px, rgba(${rgb},${intensity}), transparent 5%)`,

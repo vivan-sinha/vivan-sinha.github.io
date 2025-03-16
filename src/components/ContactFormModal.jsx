@@ -92,12 +92,10 @@ export default function ContactFormModal({contactToggled, toggleContactForm, mod
                             <div className='flex flex-row justify-between items-center w-full'>
 
                                 <p>{result}</p>
-                                <CardSpotlightEffect customCSS={'w-fit rounded self-end'}>
-                                    <CardSpotlightEffect customCSS={'w-fit rounded '}>
-                                        <button type="submit" 
-                                        className='w-fit bg-white/10 text-white font-bold py-2 px-4 rounded'
-                                        >Submit</button>
-                                    </CardSpotlightEffect>
+                                <CardSpotlightEffect intensity='0.08' customCSS={'w-fit rounded-lg self-end'}>
+                                    <button type="submit" 
+                                    className='w-fit bg-white/8 text-white font-bold py-3 px-7 rounded-lg'
+                                    >Submit</button>
                                 </CardSpotlightEffect>
 
                             </div>
