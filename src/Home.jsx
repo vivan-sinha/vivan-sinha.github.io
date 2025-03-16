@@ -39,26 +39,29 @@ export default function Home() {
         }
     }
 
-    const hoveringArrow = useRef(false)
+    const hoveringTopArrow = useRef(false)
+    const topArrowTimeout = useRef(null)
     const hoverArrowTimeout = useRef(false)
-    const arrowTimeout = useRef(null)
+
+    const hoveringBottomArrow = useRef(false)
+    const bottomArrowTimeout = useRef(null)
     
-    function handleArrowEnter() {
-        if (hoverArrowTimeout.current) {
+    function handleArrowEnter(arrowRef, timeoutRef) {
+        if (arrowRef == hoveringTopArrow && hoverArrowTimeout.current) {
             return
         }
-        hoveringArrow.current = true
-        arrowTimeout.current = setTimeout(() => {
-            if (hoveringArrow.current && !hoverArrowTimeout.current) {
+        arrowRef.current = true
+        timeoutRef.current = setTimeout(() => {
+            if (arrowRef.current) {
                 scrollToElement(startRef)
             }
         }, [800])
     }
     
 
-    function handleArrowLeave() {
-        clearTimeout(arrowTimeout.current)
-        hoveringArrow.current = false
+    function handleArrowLeave(arrowRef, timeoutRef) {
+        clearTimeout(timeoutRef.current)
+        arrowRef.current = false
     }
 
 
@@ -82,7 +85,8 @@ export default function Home() {
         
         return () => {
             document.removeEventListener('scroll', handleScroll)
-            clearTimeout(arrowTimeout.current)
+            clearTimeout(topArrowTimeout.current)
+            clearTimeout(bottomArrowTimeout.current)
         }
     }, [])
 
@@ -113,8 +117,8 @@ export default function Home() {
                         <CardSpotlightEffect intensity={'0.1'}customCSS={'hidden lg:block rounded-2xl'}>
                             <i className={`self-center justify-self-center fa-solid fa-angle-${scrollDown? 'down' : 'up'} text-5xl px-10 py-3 text-white/75 ${scrollDown && startBlinking && !stopBlinking  ? 'animate-blink' : ''}`} 
                             onClick={() => {scrollToElement(startRef)}}
-                            onMouseEnter={handleArrowEnter}
-                            onMouseLeave={handleArrowLeave}
+                            onMouseEnter={()=>handleArrowEnter(hoveringTopArrow, topArrowTimeout)}
+                            onMouseLeave={()=>handleArrowLeave(hoveringTopArrow, topArrowTimeout)}
                             ></i>
                         </CardSpotlightEffect>
                     </div>
@@ -160,7 +164,22 @@ export default function Home() {
                                 setTimeout(() => {
                                     hoverArrowTimeout.current = false
                                 }, [1000])
-                            }}></i>
+                            }}
+                            onMouseEnter={()=>{
+                                hoverArrowTimeout.current = true
+                                handleArrowEnter(hoveringBottomArrow, bottomArrowTimeout)
+                                setTimeout(()=> {
+                                    hoverArrowTimeout.current=false
+                                }, [1000])
+                            }}
+                            onMouseLeave={()=>{
+                                hoverArrowTimeout.current = true
+                                handleArrowLeave(hoveringBottomArrow, bottomArrowTimeout)
+                                setTimeout(()=> {
+                                    hoverArrowTimeout.current=false
+                                }, [1000])
+                            }}
+                            />
                         </CardSpotlightEffect>
                 </div>
             </div>
