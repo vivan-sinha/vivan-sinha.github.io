@@ -21,6 +21,19 @@ body {
     --scroll-duration: 40s;
 }
 
+@font-face {
+    font-family: "Roboto Mono";
+    src: local("RobotoMono-VariableFont_wght"),
+        url("./fonts/RobotoMono-VariableFont_wght.ttf") format("truetype");
+    font-style: normal;
+}
+@font-face {
+    font-family: "Roboto Mono";
+    src: local("RobotoMono-Italic-VariableFont_wght"),
+        url("./fonts/RobotoMono-Italic-VariableFont_wght.ttf") format("truetype");
+    font-style: italic;
+}
+
 @theme {
     --default-font-family: "Roboto Mono";
 

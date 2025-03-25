@@ -85,7 +85,7 @@ const Oracle = new Experience(
     'Staffing App',
     oracle_1,
     oracle_2,
-    <>Created an <span className='text-red-400 font-semibold'>AI powered</span> staffing automation tool to use work history to <span className='border-b-1 border-red-400'>generate skill tags</span> and match jobs with their <span className='border-b-1 border-red-400'>best candidates</span>.</>,
+    <>Created an <span className='text-red-400 font-semibold'>AI powered</span> staffing automation tool to use work history to <span className='underline-offset-4 underline decoration-red-400'> generate skill tags</span> and match jobs with their <span className='underline-offset-4 underline decoration-red-400'>best candidates</span>.</>,
     null,
     ['python', 'docker', 'chatgpt', 'pandas', 'github'],
     false,
@@ -105,7 +105,7 @@ const Scoreboard = new Experience(
     'Scoreboard Overlay',
     scoreboard_preview,
     null,
-    <>Built a <span className='text-green-300'>real-time</span> scoreboard for recording my matches. Using <a href='https://socket.io/' target='_blank' className='border-b-1'>SocketIO</a> to send the data to an OBS overlay, I <span className='bg-green-400 px-1 text-black'>greenscreen</span> it over my footage and record the game.</>,
+    <>Built a <span className='text-green-300'>real-time</span> scoreboard for recording my matches. Using <a href='https://socket.io/' target='_blank' className='underline underline-offset-4'>SocketIO</a> to send the data to an OBS overlay, I <span className='bg-green-400 px-1 text-black'>greenscreen</span> it over my footage and record the game.</>,
     'https://github.com/vivan-sinha/scoreboard',
     ['html','python', 'flask', 'javascript', 'socketio', 'css', 'git', 'github'],
     false

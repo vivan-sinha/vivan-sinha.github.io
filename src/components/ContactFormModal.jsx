@@ -86,7 +86,7 @@ export default function ContactFormModal({contactToggled, toggleContactForm, mod
                             onFocus={() => textBoxClicked.current = true}/>
                             <input className='w-full px-3 py-2 border-b-2 border-white/0 focus:border-white/75 outline-none' type='email' name='email' placeholder='Email' required
                             onFocus={() => textBoxClicked.current = true}/>
-                            <textarea rows={1} className='w-full h-auto px-3 py-2 border-b-2 border-white/0 focus:border-white/75 outline-none' name='message' placeholder='Message' required
+                            <textarea className='w-full field-sizing-content resize-none h-auto px-3 py-2 border-b-2 border-white/0 focus:border-white/75 outline-none' name='message' placeholder='Message' required
                             onFocus={() => textBoxClicked.current = true}/>
 
                             <div className='flex flex-row justify-between items-center w-full'>
