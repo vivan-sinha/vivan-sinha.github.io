@@ -91,7 +91,7 @@ function SmallScreenName() {
 function LargeScreenName({toggleContactForm}) {
     return (
         
-        <div className='hidden lg:flex h-[90vh] flex-col justify-items-center space-y-5 justify-center items-center'>
+        <div className='hidden lg:flex h-[90vh] flex-col justify-items-center justify-center items-center space-y-5 pt-10'>
             <div className='flex flex-row items-center space-x-5 justify-center text-center'>
                 <PFP/>
                 <div>

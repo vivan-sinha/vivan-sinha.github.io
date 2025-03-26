@@ -42,9 +42,6 @@ export default function Home() {
     const hoveringTopArrow = useRef(false)
     const topArrowTimeout = useRef(null)
     const hoverArrowTimeout = useRef(false)
-
-    const hoveringBottomArrow = useRef(false)
-    const bottomArrowTimeout = useRef(null)
     
     function handleArrowEnter(arrowRef, timeoutRef) {
         if (arrowRef == hoveringTopArrow && hoverArrowTimeout.current) {
@@ -55,7 +52,7 @@ export default function Home() {
             if (arrowRef.current) {
                 scrollToElement(startRef)
             }
-        }, [800])
+        }, [1000])
     }
     
 
@@ -68,6 +65,9 @@ export default function Home() {
     const [startBlinking, setStartBlinking] = useState(false)
     const [stopBlinking, setStopBlinking] = useState(false)
 
+    const [scrollDirection, setScrollDirection] = useState(true);
+    const prevScrollY = useRef(0);
+
     useEffect(() => {
         function handleScroll() {
             setStopBlinking(true)
@@ -76,6 +76,13 @@ export default function Home() {
             } else {
                 setScrollDown(true)
             }
+
+            if (window.scrollY > prevScrollY.current) {
+                setScrollDirection(true);
+            } else {
+                setScrollDirection(false);
+            }
+            prevScrollY.current = window.scrollY;
         }
         document.addEventListener('scroll', handleScroll)
 
@@ -86,7 +93,6 @@ export default function Home() {
         return () => {
             document.removeEventListener('scroll', handleScroll)
             clearTimeout(topArrowTimeout.current)
-            clearTimeout(bottomArrowTimeout.current)
         }
     }, [])
 
@@ -116,7 +122,8 @@ export default function Home() {
                         <NameCard toggleContactForm={toggleContactForm}></NameCard>
                         
                         <CardSpotlightEffect intensity={'0.1'}customCSS={'hidden lg:block rounded-2xl'}>
-                            <i className={`self-center justify-self-center fa-solid fa-angle-${scrollDown? 'down' : 'up'} text-5xl px-10 py-3 text-white/75 ${scrollDown && startBlinking && !stopBlinking  ? 'animate-blink' : ''}`} 
+                            <i className={`self-center justify-self-center fa-solid fa-angle-${scrollDown? 'down' : 'up'} text-5xl px-10 py-3 text-white ${scrollDown && startBlinking && !stopBlinking  ? 'animate-blink' : ''}
+                            transition-opacity duration-300 opacity-25 hover:opacity-75`} 
                             onClick={() => {scrollToElement(startRef)}}
                             onMouseEnter={()=>handleArrowEnter(hoveringTopArrow, topArrowTimeout)}
                             onMouseLeave={()=>handleArrowLeave(hoveringTopArrow, topArrowTimeout)}
@@ -157,35 +164,25 @@ export default function Home() {
                         <h1 className='text-2xl 2xl:text-3xl mb-10 text-gray-200'>Experienced In:</h1>
                         <TechScroller title='all' technologies={allTechnologies}/>
                     </div>
-                    <div className='flex flex-row justify-center rounded-2xl mt-10'>
-                    <CardSpotlightEffect intensity={'0.1'} customCSS={'rounded-2xl'}>
-                            <i className='fa-solid fa-angle-up self-center justify-self-center text-5xl px-10 py-3 text-white/75'
-                            onClick={() => {
-                                hoverArrowTimeout.current = true
-                                window.scrollTo({top:0, behavior:'smooth'});
-                                setTimeout(() => {
-                                    hoverArrowTimeout.current = false
-                                }, [1000])
-                            }}
-                            onMouseEnter={()=>{
-                                hoverArrowTimeout.current = true
-                                handleArrowEnter(hoveringBottomArrow, bottomArrowTimeout)
-                                setTimeout(()=> {
-                                    hoverArrowTimeout.current=false
-                                }, [1000])
-                            }}
-                            onMouseLeave={()=>{
-                                hoverArrowTimeout.current = true
-                                handleArrowLeave(hoveringBottomArrow, bottomArrowTimeout)
-                                setTimeout(()=> {
-                                    hoverArrowTimeout.current=false
-                                }, [1000])
-                            }}
-                            />
-                        </CardSpotlightEffect>
-                        </div>
+                    
                 </div>
             </div>
+            <div 
+            className={`hidden lg:flex flex-row justify-center rounded-full fixed bottom-15 right-15
+            transition-opacity duration-300 ease-in-out
+            ${((prevScrollY.current > window.innerHeight * 1.2) && !scrollDirection) ? 'z-auto opacity-100' : '-z-10 opacity-0'}`}
+            onClick={() => {
+                
+                    window.scrollTo({top:0, behavior:'smooth'});
+                
+                
+            }}>
+                <CardSpotlightEffect intensity={'0.1'} 
+                    customCSS={`rounded-full`}>
+                        <i className='fa-solid fa-angle-up self-center justify-self-center text-5xl px-4 py-3 text-white/75'
+                        />
+                    </CardSpotlightEffect>
+                    </div>
         </CardSpotlightEffect>
     )
 }
