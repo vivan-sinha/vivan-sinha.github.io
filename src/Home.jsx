@@ -157,8 +157,8 @@ export default function Home() {
                         <h1 className='text-2xl 2xl:text-3xl mb-10 text-gray-200'>Experienced In:</h1>
                         <TechScroller title='all' technologies={allTechnologies}/>
                     </div>
-                    <div className='flex flex-row justify-center p-0 m-0'>
-                    <CardSpotlightEffect intensity={'0.1'} customCSS={'rounded-2xl mt-10 mb-5'}>
+                    <div className='flex flex-row justify-center rounded-2xl mt-10'>
+                    <CardSpotlightEffect intensity={'0.1'} customCSS={'rounded-2xl'}>
                             <i className='fa-solid fa-angle-up self-center justify-self-center text-5xl px-10 py-3 text-white/75'
                             onClick={() => {
                                 hoverArrowTimeout.current = true
