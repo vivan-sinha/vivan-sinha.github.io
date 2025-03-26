@@ -15,7 +15,7 @@ function App() {
   return (
     <Routes>
       <Route path='*' element={<Home/>}/>
-      {/* <Route path='/contact' element={<ContactPage/>}/> */}
+      <Route path='/contact' element={<ContactPage/>}/>
     </Routes>
     
   )
