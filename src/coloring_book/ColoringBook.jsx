@@ -18,7 +18,7 @@ export default function ColoringBook() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 text-black font-">
+    <div className="min-h-screen bg-gray-100 text-black font-sans">
       {step === "upload" ? (
         <UploadFilePage onComplete={handleExtractionComplete} />
       ) : (
