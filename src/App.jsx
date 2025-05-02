@@ -1,5 +1,6 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Home from './Home'
+import ColoringBook from './coloring_book/ColoringBook'
 import ContactPage from './ContactPage'
 // import blackLogo from './assets/black_background.svg'
 import './App.css'
@@ -16,6 +17,7 @@ function App() {
     <Routes>
       <Route path='*' element={<Home/>}/>
       {/* <Route path='/contact' element={<ContactPage/>}/> */}
+      <Route path='/coloring-book' element={<ColoringBook></ColoringBook>}></Route>
     </Routes>
     
   )
