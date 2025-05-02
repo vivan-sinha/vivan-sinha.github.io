@@ -12,6 +12,7 @@ function App() {
   useEffect(() => {
     window.scrollTo(0,0)
   }, [pathname])
+  console.log('updated')
 
   return (
     <Routes>
