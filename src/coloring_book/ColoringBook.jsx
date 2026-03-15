@@ -8,6 +8,7 @@ export default function ColoringBook() {
   const [colors, setColors] = useState([]);
   const [filename, setFilename] = useState("Uploaded Image");
   const [dimensions, setDimensions] = useState({ width: 640, height: 480 });
+  const [uploadedFile, setUploadedFile] = useState(null);
 
   const handleExtractionComplete = (extractedColors, extractedRegionMap, originalFilename, imageDims) => {
     setColors(extractedColors);
@@ -20,13 +21,18 @@ export default function ColoringBook() {
   return (
     <div className="min-h-screen bg-gray-100 text-black font-sans">
       {step === "upload" ? (
-        <UploadFilePage onComplete={handleExtractionComplete} />
+        <UploadFilePage
+          onComplete={handleExtractionComplete}
+          initialFile={uploadedFile}
+          onFileSelected={setUploadedFile}
+        />
       ) : (
         <DrawingPage
           FILENAME={filename}
           COLORS={colors}
           REGION_MAP={regionMap}
           DIMENSIONS={dimensions}
+          onBack={() => setStep("upload")}
         />
       )}
     </div>

@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { extractRegions } from './ExtractRegions';
 import { ExampleTransformation } from './ExampleTranformation';
 import { KMeansTransformation } from './KMeansTransformation';
 import { KuwaharaFilter } from './KuwaharaFilter';
 import { GaussianBlur } from './KuwaharaFilter';
 
-export default function UploadFilePage({ onComplete }) {
+export default function UploadFilePage({ onComplete, initialFile, onFileSelected }) {
   const [colors, setColors] = useState([]);
   const [regionMap, setRegionMap] = useState([]);
   // const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
@@ -75,6 +75,7 @@ export default function UploadFilePage({ onComplete }) {
 
   const handleFile = (file) => {
     setUploadedFile(file);
+    onFileSelected?.(file);
     const reader = new FileReader();
     if (file.type === "application/json" || file.name.endsWith(".json")) {
       reader.onload = () => {
@@ -129,6 +130,12 @@ export default function UploadFilePage({ onComplete }) {
     setCanStartPainting(false);
     setCurrentStatus('')
   };
+
+  useEffect(() => {
+    if (initialFile) {
+      handleFile(initialFile);
+    }
+  }, [initialFile]);
 
   const handleImageUpload = (e) => {
     if (e.target.files[0]) {

@@ -3,7 +3,7 @@ import {useCanvas, useDrawing} from "./DrawingFunctions";
 
 // Main component
 export default function DrawingPage(props) {
-  const { FILENAME, COLORS, REGION_MAP, DIMENSIONS } = props;
+  const { FILENAME, COLORS, REGION_MAP, DIMENSIONS, onBack } = props;
   const canvasWrapperRef = useRef(null);
   const paletteRef = useRef(null);
   const [showOutlines, setShowOutlines] = useState(true);
@@ -133,7 +133,16 @@ export default function DrawingPage(props) {
   // Render
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-2xl font-semibold mb-4">{FILENAME}</h1>
+      <button
+        onClick={onBack}
+        className="fixed top-4 left-4 rounded-full border border-gray-300 bg-white px-3 py-1 text-lg leading-none shadow-sm hover:bg-gray-50"
+        aria-label="Back to upload"
+      >
+        &larr;
+      </button>
+      <div className="flex items-center gap-4 mb-4">
+        <h1 className="text-2xl font-semibold">{FILENAME}</h1>
+      </div>
       {selectedRegion ? (
         <p className="mb-2 text-lg font-medium text-gray-700">
           Region Color: <span className="text-blue-600">{REGION_MAP.filter(r => r.name === selectedRegion)[0].colorNum}</span>

@@ -101,7 +101,7 @@ export default function Home() {
             <div className={styles} key={whichIndex}>
                                 
                 {
-                    Experiences.filter((experience) => !experience.current).filter((_, index) => index % numRows == whichIndex).map((experience, index) => {
+                    Experiences.filter((experience) => experience.isProject && !experience.current).filter((_, index) => index % numRows == whichIndex).map((experience, index) => {
                         return (
                             <SmallExperienceCard key={index} title={experience.title} image={experience.image} image2={experience.image2} description={experience.description} link={experience.link} technologies={experience.technologies}/>
                         )
@@ -135,7 +135,18 @@ export default function Home() {
                     <div ref={startRef} className='mb-15 lg:pt-10'>
                         <h1 className='text-2xl 2xl:text-3xl mb-12 text-gray-200'>Currently Working With:</h1>
                         <div className='current-projects-container space-y-10'>
-                            { Experiences.filter((experience) => experience.current).map((experience, index) => {
+                            { Experiences.filter((experience) => experience.isCurrent && !experience.isProject).map((experience, index) => {
+                                return (
+                                    <BigExperienceCard key={index} title={experience.title} image={experience.image} image2={experience.image2} description={experience.description} link={experience.link} technologies={experience.technologies} reverse={index % 2 != 0}/>
+                                )
+                            })}
+                        </div>
+                    </div>
+                    
+                    <div className='mb-15 lg:pt-10'>
+                        <h1 className='text-2xl 2xl:text-3xl mb-12 text-gray-200'>Previous Work:</h1>
+                        <div className='current-projects-container space-y-10'>
+                            { Experiences.filter((experience) => !experience.isCurrent && !experience.isProject).map((experience, index) => {
                                 return (
                                     <BigExperienceCard key={index} title={experience.title} image={experience.image} image2={experience.image2} description={experience.description} link={experience.link} technologies={experience.technologies} reverse={index % 2 != 0}/>
                                 )
