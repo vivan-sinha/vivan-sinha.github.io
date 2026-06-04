@@ -1,6 +1,7 @@
 import OCTO_preview from '../assets/OCTO_preview.png'
 import Rezolve_preview from '../assets/Rezolve_preview.png'
 import Rezolve2 from '../assets/Rezolve2.png'
+import scale_ai_preview from '../assets/scale_ai_preview.png'
 import oracle_1 from '../assets/oracle_1.png'
 import oracle_2 from '../assets/oracle_preview.png'
 import website_preview from '../assets/website_preview.png'
@@ -11,6 +12,7 @@ import coloring_book_preview from '../assets/coloring_book_preview.png'
 
 export const techIcons = {
     'node': { className: "devicon-nodejs-plain-wordmark hover:text-green-700", link: "https://nodejs.org/en" },
+    'next': { className: "devicon-nextjs-original-wordmark hover:text-white", link: "https://nextjs.org/" },
     'tailwind': { className: "devicon-tailwindcss-original hover:text-blue-400", link: "https://tailwindcss.com/" },
     'vite': { className: "devicon-vitejs-plain hover:bg-gradient-to-tl hover:from-purple-500 hover:to-blue-700 hover:text-transparent hover:bg-clip-text", link: "https://vite.dev/" },
     'react': { className: "devicon-react-original-wordmark hover:text-blue-300", link: "https://react.dev/" },
@@ -32,13 +34,18 @@ export const techIcons = {
     'git': { className: "devicon-git-plain hover:text-orange-700", link: "https://git-scm.com/" },
     'github': { className: "devicon-github-original hover:text-white", link: "https://github.com/about" },
     'bitbucket': { className: "devicon-bitbucket-original hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-800 hover:text-transparent hover:bg-clip-text", link: "https://bitbucket.org/product/" },
+    'go': { className: "devicon-go-original-wordmark hover:text-cyan-300", link: "https://go.dev/" },
+    'aws': { className: "devicon-amazonwebservices-plain-wordmark hover:text-orange-300", link: "https://aws.amazon.com/" },
+    'terraform': { className: "devicon-terraform-plain hover:text-purple-300", link: "https://developer.hashicorp.com/terraform" },
+    'helm': { className: "devicon-helm-original hover:text-blue-300", link: "https://helm.sh/" },
+    'kubernetes': { className: "devicon-kubernetes-plain hover:text-blue-400", link: "https://kubernetes.io/" },
     'devicon': {className: "devicon-devicon-plain hover:text-green-900", link: "https://devicon.dev/"},
     'tensorflow': {className: "devicon-tensorflow-original hover:text-orange-500", link: "https://www.tensorflow.org/"},
   
 }
 
 export const allTechnologies = 
-['node', 'tailwind', 'vite', 'react', 'typescript', 'html', 'npm', 'python', 'fastapi', 'tensorflow', 'flask', 'docker', 'javascript', 'socketio', 'postgres', 'gcloud', 'css', 'pandas', 'ruby', 'jekyll', 'git', 'github', 'bitbucket', 'devicon']
+['node', 'next', 'tailwind', 'vite', 'react', 'typescript', 'html', 'npm', 'python', 'fastapi', 'tensorflow', 'flask', 'docker', 'javascript', 'socketio', 'postgres', 'gcloud', 'css', 'pandas', 'ruby', 'jekyll', 'git', 'github', 'bitbucket', 'go', 'aws', 'terraform', 'helm', 'kubernetes', 'devicon']
 
 export class Experience {
     constructor(title, image, image2, description, link, technologies, isProject, isCurrent) {
@@ -54,12 +61,12 @@ export class Experience {
 }
 
 const Scale = new Experience(
-    'scale.ai',
-    null,
-    null,
-    <>Making reliable solutions to inform the public sector's most important decisions.</>,
+    'Scale AI',
+    scale_ai_preview,
+    scale_ai_preview,
+    <>Building the infrastructure behind <span className='bg-gradient-to-r from-orange-300 to-purple-400 bg-clip-text text-transparent'>agentic workflows</span>: fast sandbox provisioning, secure service access, and reliable runtime controls for large-scale customer deployments.</>,
     'https://scale.com/public-sector',
-    ['fastapi', 'python', 'react', 'typescript', 'node'],
+    ['python', 'go', 'terraform', 'aws', 'helm', 'kubernetes', 'next'],
     false,
     true
 )
@@ -83,7 +90,7 @@ export const Rezolve = new Experience(
     'https://rezolve.ai/',
     ['python', 'gcloud', 'fastapi', 'flask', 'chatgpt', 'docker', 'socketio', 'postgres', 'pandas', 'bitbucket'],
     false,
-    true,
+    false,
 )
 
 const ThisWebsite = new Experience(
@@ -152,4 +159,4 @@ const NEAT = new Experience(
     false,
 )
 
-export const Experiences = [Scale, OCTO, Rezolve, ThisWebsite, ColoringBook, Oracle, CalBadminton, Scoreboard, NEAT]
+export const Experiences = [Scale, Rezolve, OCTO, ThisWebsite, ColoringBook, Oracle, CalBadminton, Scoreboard, NEAT]
