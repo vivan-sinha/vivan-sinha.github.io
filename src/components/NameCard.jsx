@@ -79,7 +79,7 @@ function SmallScreenName() {
                         <Logos/>
                     </div>
 
-                    <p className='justify-self-start sm:justify-self-end text-sm text-gray-300'><i className="fa-solid fa-map-location-dot text-md"/> Berkeley, CA</p>
+                    <p className='justify-self-start sm:justify-self-end text-sm text-gray-300'><i className="fa-solid fa-map-location-dot text-md"/> San Francisco, CA</p>
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@ function LargeScreenName({toggleContactForm}) {
                 <div>
                     <CardSpotlightEffect customCSS={'px-1'} intensity={'0.1'}>
                     <h1 className='text-4xl tracking-tight'>Vivan Sinha</h1></CardSpotlightEffect>
-                    <p className='justify-self-start text-xs px-1 md:text-xl text-gray-300'><i className="fa-solid fa-map-location-dot"/> Berkeley, CA</p>
+                    <p className='justify-self-start text-xs px-1 md:text-xl text-gray-300'><i className="fa-solid fa-map-location-dot"/> San Francisco, CA</p>
                 </div>
             </div>
             <div className='text-4xl sm:text-9xl font-bold text-center'>
